@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contoh DOM Manipulasi</title>
+</head>
+<body>
+  <ul id="daftar">
+    <li>Apel</li>
+    <li>Pisang</li>
+    <li>Jeruk</li>
+  </ul>
+  <button id="tambah">Tambah Buah</button>
+  <button id="hapus">Hapus Buah Terakhir</button>
+
+  <script>
+    const daftarElemen = document.getElementById('daftar');
+    const tombolTambah = document.getElementById('tambah');
+    const tombolHapus = document.getElementById('hapus');
+
+    tombolTambah.addEventListener('click', function() {
+      const newBuah = document.createElement('li');
+      newBuah.textContent = 'Anggur';
+      daftarElemen.appendChild(newBuah);
+    });
+
+    tombolHapus.addEventListener('click', function() {
+      const lastBuah = daftarElemen.lastElementChild;
+      if (lastBuah) {
+        daftarElemen.removeChild(lastBuah);
+      }
+    });
+  </script>
+</body>
+</html>
