@@ -37,7 +37,17 @@
 
 function ganjilGenapAsianGames(date, data) {
 //code here
-
+    if (date < 1 || date > 31) return 'invalid dates';
+    let output = 0;
+    for (const kendaraan of data) {
+      if (kendaraan.type === 'Mobil'){
+        let noPol = kendaraan.plat.split(" ");
+        let plat = noPol[1] % 2;
+        let tgl = date % 2;
+        if (plat !== tgl) output++;
+      }
+    } 
+    return output;
 }
 
 console.log(ganjilGenapAsianGames(30, [{
